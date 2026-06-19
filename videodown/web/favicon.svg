@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="VideoDown">
+  <rect width="32" height="32" rx="8" fill="#1a1a1e"/>
+  <rect x="7" y="8" width="14" height="11" rx="2.5" fill="#3b82f6"/>
+  <path fill="#fff" d="M13.5 11.5v4.5l3.8-2.25L13.5 11.5z"/>
+  <path fill="#93c5fd" d="M11 22h10v1.8H11V22zm4.2 2.6 3.6 2.1v-4.2l-3.6 2.1z"/>
+</svg>

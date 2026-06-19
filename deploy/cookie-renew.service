@@ -1,0 +1,10 @@
+[Unit]
+Description=VideoDown Cookie 过期时间续期
+After=network.target
+
+[Service]
+Type=oneshot
+User=admin
+WorkingDirectory=/home/project/videodown
+Environment=VIDEODOWN_CONFIG_DIR=/home/project/videodown/config
+ExecStart=/home/project/videodown/.venv/bin/python3 /home/project/videodown/scripts/renew_cookie_expiry.py

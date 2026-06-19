@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Downloads (runtime data)
+downloads/
+
+# Config with secrets
+config/xiaohongshu_cookies.txt
+config/youtube_cookies.txt
+config/xhs_probe_url.txt
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log

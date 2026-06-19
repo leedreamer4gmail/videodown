@@ -1,0 +1,2 @@
+# 将浏览器导出的 YouTube Cookie（Netscape 格式）保存为此文件即可启用 YouTube 解析
+# 导出方法：浏览器安装 "Get cookies.txt LOCALLY" 扩展 → 登录 youtube.com → 导出 → 上传到此路径

@@ -1,0 +1,3 @@
+"""VideoDown Web 服务模块。"""
+
+from __future__ import annotations

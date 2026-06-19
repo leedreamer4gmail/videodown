@@ -1,0 +1,10 @@
+[Unit]
+Description=每日续期 VideoDown Cookie 文件过期时间
+
+[Timer]
+OnCalendar=*-*-* 04:00:00
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target

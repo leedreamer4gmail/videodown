@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <script>
+    if (window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone) {
+      document.documentElement.classList.add("standalone");
+    }
+  </script>
+  <meta name="vd:base" content="https://leedreamer.cn/videodown" />
+  <script>
+    (function () {
+      var meta = document.querySelector('meta[name="vd:base"]');
+      var basePath = "/videodown/";
+      if (meta && meta.content) {
+        try { basePath = new URL(meta.content).pathname.replace(/\/?$/, "/"); } catch (_) {}
+      } else if (location.pathname.indexOf("/videodown") >= 0) {
+        basePath = "/videodown/";
+      }
+      var el = document.createElement("base");
+      el.href = basePath;
+      document.head.appendChild(el);
+    })();
+  </script>
+  <title>VideoDown 免费在线视频下载 | 抖音 小红书 YouTube TikTok X 解析</title>
+  <meta name="description" content="VideoDown 免费在线视频下载工具：粘贴抖音、小红书、YouTube、B站、快手、X（推特）、TikTok 分享链接，一键解析清晰度并下载到手机或电脑。访客无需登录，服务器不落盘，隐私安全。" />
+  <meta name="keywords" content="视频下载,在线下载,抖音下载,小红书下载,YouTube下载,B站下载,快手下载,TikTok下载,X视频下载,推特下载,无水印,免费" />
+  <meta name="author" content="VideoDown" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#1e1e1e" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="VideoDown" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="canonical" href="https://leedreamer.cn/videodown/?lang=zh" />
+  <link rel="alternate" hreflang="zh-CN" href="https://leedreamer.cn/videodown/?lang=zh" />
+  <link rel="alternate" hreflang="en" href="https://leedreamer.cn/videodown/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://leedreamer.cn/videodown/?lang=zh" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
+  <link rel="apple-touch-startup-image" href="splash-iphone.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="splash-iphone.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="splash-iphone-max.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)" />
+  <link rel="apple-touch-startup-image" href="splash-iphone.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VideoDown" />
+  <meta property="og:url" content="https://leedreamer.cn/videodown/" />
+  <meta property="og:title" content="VideoDown 免费在线视频下载 | 抖音 小红书 YouTube TikTok X 解析" />
+  <meta property="og:description" content="免费在线视频下载：抖音、小红书、YouTube、B站、快手、X、TikTok 链接解析，选清晰度保存到手机或电脑。无需登录，隐私安全。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="VideoDown 免费在线视频下载" />
+  <meta name="twitter:description" content="Douyin, Xiaohongshu, YouTube, Bilibili, Kuaishou, X, TikTok – paste link, pick quality, download free." />
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --panel: #252526;
+      --text: #cccccc;
+      --muted: #858585;
+      --input-bg: #ffffff;
+      --input-fg: #1e1e1e;
+      --border: #3c3c3c;
+      --accent: #0e639c;
+      --accent-hover: #1177bb;
+      --link: #4daafc;
+      --secondary: #3c3c3c;
+      --secondary-hover: #4a4a4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 13px;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+    body.standalone .site-header { padding-top: env(safe-area-inset-top); }
+    html.standalone .web-only,
+    body.standalone .web-only { display: none !important; }
+    html.standalone .ios-tip,
+    body.standalone .ios-tip { display: none !important; }
+    body.standalone .wrap { padding-top: 16px; }
+    body.standalone .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(30, 30, 30, 0.92);
+    }
+    .ios-tip {
+      margin: 0 0 14px;
+      padding: 12px;
+      background: #2d2d30;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ios-tip img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .site-header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .lang-switch {
+      font-size: 12px;
+      color: var(--link);
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--panel);
+    }
+    .lang-switch:hover { background: var(--secondary); }
+    .header-actions { display: flex; gap: 8px; align-items: center; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 28px 20px 24px; flex: 1; width: 100%; }
+    h1 { font-size: 18px; margin: 0 0 6px; }
+    .hint { color: var(--muted); font-size: 12px; margin-bottom: 18px; }
+    label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    textarea, select {
+      width: 100%;
+      font-size: 12px;
+      border: 1px solid #c8c8c8;
+      border-radius: 4px;
+      background: var(--input-bg);
+      color: var(--input-fg);
+      padding: 10px 12px;
+      font-family: inherit;
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    button {
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 7px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    button:hover { background: var(--accent-hover); }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    button.secondary {
+      background: var(--secondary);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    button.secondary:hover { background: var(--secondary-hover); }
+    .progress-wrap { margin: 12px 0 6px; }
+    progress { width: 100%; height: 14px; accent-color: var(--accent); }
+    .status { font-size: 12px; color: var(--muted); }
+    #videoTitle { font-size: 13px; line-height: 1.5; word-break: break-word; }
+    #videoCopy {
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: var(--input-bg);
+      color: var(--input-fg);
+      border: 1px solid #c8c8c8;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 80px;
+      max-height: 280px;
+      overflow: auto;
+    }
+    #btnCopyText {
+      margin-top: 12px;
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 13px;
+    }
+    #btnCopyText:disabled { opacity: 0.4; }
+    #log {
+      background: var(--input-bg);
+      color: var(--input-fg);
+      border: 1px solid #c8c8c8;
+      border-radius: 4px;
+      padding: 10px 12px;
+      min-height: 140px;
+      max-height: 260px;
+      overflow: auto;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      white-space: pre-wrap;
+    }
+    .tip { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    .mobile-dl {
+      display: none;
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 6px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+    .mobile-dl.show { display: block; }
+    .mobile-dl a {
+      display: block;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .mobile-dl p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .mobile-dl .steps { margin: 10px 0 0; padding-left: 18px; font-size: 12px; color: var(--text); line-height: 1.65; }
+    .mobile-dl .save-album {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px 14px;
+      border-radius: 4px;
+      background: #2d6a3e;
+      color: #fff;
+      border: none;
+      font-weight: 500;
+      font-size: 13px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .mobile-dl .save-album:disabled { opacity: 0.5; cursor: not-allowed; }
+    .platform-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .platform-tag { white-space: nowrap; }
+    .seo-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .seo-section h2 { font-size: 14px; color: var(--text); margin: 0 0 10px; }
+    .seo-section ol, .seo-section ul { padding-left: 20px; margin: 8px 0; }
+    .seo-section li { margin-bottom: 8px; }
+    .seo-section li strong { color: var(--text); display: block; margin-bottom: 4px; }
+    .seo-section li p { margin: 0; }
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      padding: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.8;
+    }
+    .site-footer a { color: var(--link); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+    .site-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom)); }
+    @media (max-width: 768px) {
+      .wrap { padding: 20px 14px 24px; }
+      h1 { font-size: 17px; }
+      button { padding: 10px 12px; font-size: 12px; min-height: 40px; }
+      textarea { min-height: 96px; font-size: 14px; }
+      select { font-size: 14px; min-height: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="./" aria-label="VideoDown Home">VideoDown</a>
+      <div class="header-actions">
+        <a href="#" class="lang-switch" id="btnShare" data-i18n="navShare">分享</a>
+        <a href="#" class="lang-switch" id="navLang" data-i18n="navLang" title="Switch to English">English</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 data-i18n="h1">VideoDown 视频下载</h1>
+    <p class="ios-tip" id="iosTip" hidden>
+      <img src="apple-touch-icon.png" alt="" width="48" height="48" />
+      <span id="iosTipText"></span>
+    </p>
+    <p class="hint">
+      <span id="hintPrefix"></span><strong id="hintTarget">本机</strong><span id="hintSuffix"></span>
+    </p>
+
+    <section class="panel" id="platformPanel" aria-label="Platform support">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap">
+        <strong style="font-size:12px" data-i18n="platformSupport">平台支持</strong>
+        <span id="platformCheckedAt" style="font-size:10px;color:var(--muted)">检测中…</span>
+      </div>
+      <div id="platformRow" class="platform-row">正在探测…</div>
+    </section>
+
+    <label for="url" data-i18n="urlLabel">视频链接</label>
+    <textarea id="url" autocomplete="off" autocorrect="off" spellcheck="false" data-i18n-placeholder="urlPlaceholder" placeholder="" aria-label="Video URL"></textarea>
+
+    <div class="row" style="margin-top:14px">
+      <button id="btnParse" data-i18n="btnParse">解析链接</button>
+      <button id="btnDownload" disabled data-i18n="btnDownloadDesktop">下载到本机</button>
+      <button id="btnClear" class="secondary" data-i18n="btnClear">清空日志</button>
+    </div>
+
+    <section class="panel" id="infoPanel" aria-label="Video info">
+      <div style="margin-bottom:10px">
+        <strong data-i18n="titleLabel">视频标题</strong>
+        <div id="videoTitle" data-i18n="titleEmpty">请先解析链接</div>
+      </div>
+      <label for="quality" data-i18n="qualityLabel">清晰度</label>
+      <select id="quality" disabled aria-label="Quality"><option>—</option></select>
+    </section>
+
+    <section class="panel" id="copyPanel" hidden aria-label="Speech transcript">
+      <strong data-i18n="copyLabel">语音文字</strong>
+      <div id="videoCopy" aria-live="polite"></div>
+      <button type="button" id="btnCopyText" class="secondary" data-i18n="copyBtn" disabled>一键复制文案</button>
+    </section>
+
+    <div class="progress-wrap" role="status" aria-live="polite">
+      <progress id="progress" value="0" max="100" aria-label="Progress"></progress>
+      <div class="status" id="status" data-i18n="statusReady">就绪</div>
+    </div>
+    <p class="tip" id="tipDesktop" data-i18n="tipDesktop">下载由浏览器接管，请看浏览器底部/右上角下载栏的进度（本页进度条仅表示已提交）。</p>
+    <p class="tip" id="tipMobile" style="display:none" data-i18n="tipMobile">手机：下载后在通知栏或「文件/下载」中查看；完成后可点绿色「保存到相册」。</p>
+
+    <div class="mobile-dl" id="downloadPanel">
+      <p id="downloadPanelHint"><strong>下载已提交</strong></p>
+      <ol class="steps" id="downloadPanelSteps"></ol>
+      <button type="button" class="save-album" id="btnSaveAlbum" style="display:none" data-i18n="saveAlbum">保存到相册</button>
+      <a id="downloadPanelLink" href="#">点击重新下载</a>
+    </div>
+
+    <iframe id="downloadFrame" name="downloadFrame" style="display:none" title="download"></iframe>
+
+    <div id="log" style="margin-top:14px" aria-label="Log"></div>
+
+    <article class="seo-section web-only" id="seoContent">
+      <h2 data-i18n="seoH2">支持的短视频与长视频平台</h2>
+      <p data-i18n="seoP1">VideoDown 是面向访客免费的在线视频解析下载服务。</p>
+      <h2 data-i18n="seoH2How">如何使用</h2>
+      <ol id="howSteps"></ol>
+      <h2 data-i18n="seoH2Faq">常见问题</h2>
+      <ul id="faqList"></ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="web-only" data-i18n="footerTagline">免费在线视频解析 · 隐私优先 · 服务器不落盘</p>
+    <p id="footerCopyright">© 2026 VideoDown · leedreamer.cn 保留所有权利</p>
+    <p class="web-only" data-i18n="footerPrivacy">隐私：视频仅作转发，不在服务器长期保存</p>
+    <p class="web-only" data-i18n="footerTerms">仅供个人学习与研究，请遵守各平台版权与用户协议</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

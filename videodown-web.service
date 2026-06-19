@@ -1,0 +1,15 @@
+[Unit]
+Description=VideoDown Web Service
+After=network.target
+
+[Service]
+Type=simple
+User=admin
+WorkingDirectory=/home/project/videodown
+Environment=VIDEODOWN_DOWNLOAD_DIR=/home/project/videodown/downloads
+ExecStart=/home/project/videodown/.venv/bin/uvicorn videodown.web.server:app --host 127.0.0.1 --port 8765
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
